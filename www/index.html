@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Map</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+            <meta charset="utf-8">
+                <title>Marker Animations</title>
+                <style>
+                    html, body, #map-canvas {
+                        height: 100%;
+                        margin: 0px;
+                        padding: 0px
+                    }
+                </style>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0FM5TxM9gJEZkgIWNeXWVh8ApoicY6oo"></script>
+                <script type="text/javascript" src="cordova.js"></script>
+                <script type="text/javascript" src="js/index.js"></script>
+                <script type="text/javascript" src="js/jquery.js"></script>
+                <script>
+                    function initialize() {
+                        var myLatlng = new google.maps.LatLng(39.774723,-86.1559388);
+                        var myLatlng1 = new google.maps.LatLng(39.7689791,-86.1570333);
+                        var myLatlng2 = new google.maps.LatLng(39.7748218,-86.1758937);
+                        var myLatlng3 = new google.maps.LatLng(39.765906,-86.2445022);
+                        var myLatlng4 = new google.maps.LatLng(39.7818173,-86.2286304);
+                        
+                        var mapOptions = {
+                            zoom: 10,
+                            center: myLatlng
+                        };
+                        
+                        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                        
+                        var contentString = '<div id="content">'+
+                        '<div id="siteNotice">'+
+                        '</div>'+
+                        '<h1 id="firstHeading" class="firstHeading">Marsh super market!</h1>'+
+                        '<div id="bodyContent">'+
+                        '<p>Marsh Supermarket Pharmacy' +
+                        'a very good american super market '+
+                        'open from 09:00–19:00.</p>'+
+                        '</div>'+
+                        '</div>';
+                        
+                        var contentString1 = '<div id="content">'+
+                        '<div id="siteNotice">'+
+                        '</div>'+
+                        '<h1 id="firstHeading" class="firstHeading">Marsh super market again!</h1>'+
+                        '<div id="bodyContent">'+
+                        '<p>Marsh Supermarket Pharmacy' +
+                        'a very good american super market '+
+                        'in 111 Monument Cir #43 Indianapolis, IN 46204' +
+                        'open from 09:00–19:00.</p>'+
+                        '<img src="http://images.barnesandnoble.com/pimages/store/photo/s2/2890.jpg" height="50px" width="50px">'+
+                        '</div>'+
+                        '</div>';
+                        
+                        var contentString2 = '<div id="content">'+
+                        '<div id="siteNotice">'+
+                        '</div>'+
+                        '<h1 id="firstHeading" class="firstHeading">Welcome to IUPUI!</h1>'+
+                        '<div id="bodyContent">'+
+                        '<p>IUPUI' +
+                        'The best school in indianapolis '+
+                        '420 University Blvd Indianapolis, IN 46202' +
+                        '</div>'+
+                        '</div>';
+                        
+                        var contentString3 = '<div id="content">'+
+                        '<div id="siteNotice">'+
+                        '</div>'+
+                        '<h1 id="firstHeading" class="firstHeading">Tree farm!</h1>'+
+                        '<div id="bodyContent">'+
+                        '<p>Dammanns Lawn & Garden Center' +
+                        'open in 09:00–19:00'+
+                        '4914 Rockville Rd Indianapolis, IN 46224' +
+                        '</div>'+
+                        '</div>';
+                        
+                        
+                        
+                        var contentString4 = '<div id="content">'+
+                        '<div id="siteNotice">'+
+                        '</div>'+
+                        '<h1 id="firstHeading" class="firstHeading">Sanata!</h1>'+
+                        '<div id="bodyContent">'+
+                        '<p>Sanata!' +
+                        'open in 14:00–19:00'+
+                        'have a good time here!' +
+                        '<img src="http://englipedia.informe.com/gallery/2383-8/sanata.png" height="50px" width="50px">'+
+                        '</div>'+
+                        '</div>';
+                        
+                        var infowindow = new google.maps.InfoWindow({ content: contentString });
+                        var marker = new google.maps.Marker({position: myLatlng, map: map, title: 'Marsh!'});
+                        
+                        var infowindow1 = new google.maps.InfoWindow({ content: contentString1 });
+                        var marker1 = new google.maps.Marker({position: myLatlng1, map: map, title: 'Marsh again!'});
+                        
+                        google.maps.event.addListener(marker, 'click', function() {
+                             infowindow.open(map,marker);
+                        });
+                        
+                        google.maps.event.addListener(marker1, 'click', function() {
+                             infowindow1.open(map,marker1);
+                        });
+                        
+                        var infowindow2 = new google.maps.InfoWindow({ content: contentString2 });
+                        var marker2 = new google.maps.Marker({position: myLatlng2, map: map, title: 'IUPUI!'});
+                        
+                        google.maps.event.addListener(marker2, 'click', function() {
+                             infowindow2.open(map,marker2);
+                        });
+                        
+                        var infowindow3 = new google.maps.InfoWindow({ content: contentString3 });
+                        var marker3 = new google.maps.Marker({position: myLatlng3, map: map, title: 'Tree farm!'});
+                        
+                        google.maps.event.addListener(marker3, 'click', function() {
+                             infowindow3.open(map,marker3);
+                        });
+                        
+                        var infowindow4 = new google.maps.InfoWindow({ content: contentString4 });
+                        var marker4 = new google.maps.Marker({position: myLatlng4, map: map, title: 'Tree farm!'});
+                        
+                        google.maps.event.addListener(marker4, 'click', function() {
+                             infowindow4.open(map,marker4);
+                         });
+                    }
+                
+                google.maps.event.addDomListener(window, 'load', initialize);
+                </script>
+                </head>
+    <body>
+        <div id="map-canvas"></div>
+    </body>
+</html>
